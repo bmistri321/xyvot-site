@@ -54,6 +54,9 @@ export default function Home() {
             <ScrollLink to="riders" className="hover:text-slate-950 transition-colors">
               Riders
             </ScrollLink>
+            <Link href="/about" className="hover:text-slate-950 transition-colors">
+              About
+            </Link>
             <ScrollLink to="faq" className="hover:text-slate-950 transition-colors">
               FAQ
             </ScrollLink>
@@ -467,6 +470,11 @@ export default function Home() {
                 Company
               </h3>
               <ul className="mt-5 space-y-3 text-[15px]">
+                <li>
+                  <Link href="/about" className="text-slate-300 hover:text-white transition-colors">
+                    About
+                  </Link>
+                </li>
                 <li>
                   <ScrollLink to="how-it-works" className="text-slate-300 hover:text-white transition-colors">
                     How it works
