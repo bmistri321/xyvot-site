@@ -471,9 +471,15 @@ export default function Home() {
             <p className="text-sm text-slate-500">
               © 2026 Xyvot. All rights reserved.
             </p>
-            <p className="text-sm text-slate-500">
-              Made for neighbourhoods, by Xyvot.
-            </p>
+            <div className="flex items-center gap-6 text-sm text-slate-500">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-slate-900 transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <p>Made for neighbourhoods, by Xyvot.</p>
+            </div>
           </div>
         </div>
       </footer>
