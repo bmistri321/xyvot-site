@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ScrollLink from "../components/ScrollLink";
 
 const SHOP_URL = "https://shop.xyvot.com";
 const BUSINESS_URL = "https://business.xyvot.com";
@@ -7,36 +8,36 @@ const RIDER_URL = "https://rider.xyvot.com";
 
 export default function Home() {
   return (
-    <main>
-      {/* ============ NAVIGATION ============ */}
-      <header className="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
+    <main className="bg-[#FAFAF8] text-slate-900 overflow-x-clip">
+      {/* ============ FLOATING PILL NAVIGATION ============ */}
+      <header className="fixed top-4 inset-x-0 z-50 px-4 sm:px-6">
         <nav
           aria-label="Main navigation"
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+          className="max-w-5xl mx-auto flex items-center justify-between h-14 pl-6 pr-3 rounded-full bg-white/80 backdrop-blur-xl border border-slate-200/70 shadow-lg shadow-slate-900/[0.06]"
         >
           <Link href="/" className="flex items-center gap-2" aria-label="Xyvot home">
             <span className="text-2xl font-black tracking-tight">
               xyvot<span className="text-orange-600">.</span>
             </span>
           </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <Link href="#customers" className="hover:text-slate-900 transition-colors">
+          <div className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+            <ScrollLink to="customers" className="hover:text-slate-900 transition-colors">
               Customers
-            </Link>
-            <Link href="#businesses" className="hover:text-slate-900 transition-colors">
+            </ScrollLink>
+            <ScrollLink to="businesses" className="hover:text-slate-900 transition-colors">
               Businesses
-            </Link>
-            <Link href="#riders" className="hover:text-slate-900 transition-colors">
+            </ScrollLink>
+            <ScrollLink to="riders" className="hover:text-slate-900 transition-colors">
               Riders
-            </Link>
-            <Link href="#how-it-works" className="hover:text-slate-900 transition-colors">
+            </ScrollLink>
+            <ScrollLink to="how-it-works" className="hover:text-slate-900 transition-colors">
               How it works
-            </Link>
-            <Link href="#faq" className="hover:text-slate-900 transition-colors">
+            </ScrollLink>
+            <ScrollLink to="faq" className="hover:text-slate-900 transition-colors">
               FAQ
-            </Link>
+            </ScrollLink>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <Link
               href={SHOP_URL}
               className="hidden sm:inline-flex px-4 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors"
@@ -45,7 +46,7 @@ export default function Home() {
             </Link>
             <Link
               href={BUSINESS_URL}
-              className="inline-flex px-4 py-2 text-sm font-semibold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors"
+              className="inline-flex px-5 py-2.5 text-sm font-semibold text-white bg-slate-950 rounded-full hover:bg-slate-800 transition-colors"
             >
               Sell on Xyvot
             </Link>
@@ -54,13 +55,22 @@ export default function Home() {
       </header>
 
       {/* ============ HERO ============ */}
-      <section className="pt-32 pb-20 sm:pt-40 sm:pb-28 bg-gradient-to-b from-orange-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 text-orange-800 text-sm font-semibold mb-6">
+      <section className="relative pt-36 pb-24 sm:pt-44 sm:pb-32">
+        {/* pastel glow blobs */}
+        <div
+          aria-hidden="true"
+          className="absolute -top-20 left-1/2 -translate-x-1/2 w-[720px] h-[420px] rounded-full bg-gradient-to-br from-orange-200/60 via-amber-100/50 to-rose-100/40 blur-3xl pointer-events-none"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute top-64 -left-40 w-[420px] h-[420px] rounded-full bg-orange-100/50 blur-3xl pointer-events-none"
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-semibold mb-7 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-orange-600 animate-pulse" aria-hidden="true" />
             Now delivering in your neighbourhood
           </p>
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 max-w-4xl mx-auto leading-[1.05]">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.04] max-w-4xl mx-auto">
             Instant commerce for{" "}
             <span className="text-orange-600">local businesses</span>
           </h1>
@@ -72,46 +82,100 @@ export default function Home() {
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href={SHOP_URL}
-              className="w-full sm:w-auto inline-flex justify-center px-8 py-4 text-base font-bold text-white bg-orange-600 rounded-full hover:bg-orange-700 transition-colors shadow-lg shadow-orange-600/25"
+              className="w-full sm:w-auto inline-flex justify-center px-8 py-4 text-base font-bold text-white bg-slate-950 rounded-full hover:bg-slate-800 transition-colors"
             >
               Shop groceries
             </Link>
             <Link
               href={BUSINESS_URL}
-              className="w-full sm:w-auto inline-flex justify-center px-8 py-4 text-base font-bold text-slate-900 bg-white border-2 border-slate-200 rounded-full hover:border-slate-900 transition-colors"
+              className="w-full sm:w-auto inline-flex justify-center px-8 py-4 text-base font-bold text-slate-900 bg-transparent border border-slate-300 rounded-full hover:border-slate-900 transition-colors"
             >
               Become a seller
             </Link>
           </div>
-          <dl className="mt-16 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <dl className="mt-20 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
             <div className="text-center">
               <dt className="sr-only">Delivery time</dt>
-              <dd className="text-3xl sm:text-4xl font-black text-slate-900">15<span className="text-lg font-bold text-slate-500"> min</span></dd>
+              <dd className="text-3xl sm:text-4xl font-black">15<span className="text-lg font-bold text-slate-500"> min</span></dd>
               <dd className="mt-1 text-sm text-slate-500">Express delivery</dd>
             </div>
             <div className="text-center border-x border-slate-200">
               <dt className="sr-only">Product categories</dt>
-              <dd className="text-3xl sm:text-4xl font-black text-slate-900">500<span className="text-lg font-bold text-slate-500">+</span></dd>
+              <dd className="text-3xl sm:text-4xl font-black">500<span className="text-lg font-bold text-slate-500">+</span></dd>
               <dd className="mt-1 text-sm text-slate-500">Products listed</dd>
             </div>
             <div className="text-center">
               <dt className="sr-only">Local shops</dt>
-              <dd className="text-3xl sm:text-4xl font-black text-slate-900">100<span className="text-lg font-bold text-slate-500">+</span></dd>
+              <dd className="text-3xl sm:text-4xl font-black">100<span className="text-lg font-bold text-slate-500">+</span></dd>
               <dd className="mt-1 text-sm text-slate-500">Partner shops</dd>
             </div>
           </dl>
         </div>
       </section>
 
-      {/* ============ FOR CUSTOMERS ============ */}
-      <section id="customers" className="py-20 sm:py-28 scroll-mt-16">
+      {/* ============ FEATURES ============ */}
+      <section className="relative py-24 sm:py-32">
+        <div
+          aria-hidden="true"
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-gradient-to-br from-orange-100/70 via-amber-50/60 to-rose-100/50 blur-3xl pointer-events-none"
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 items-end mb-14">
+            <h2 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
+              Everything you need for instant commerce
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed lg:pb-2">
+              One platform for customers, merchants, and riders — ordering,
+              selling, and delivering, all in minutes.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: "🛒",
+                title: "Shop in 15 minutes",
+                text: "Groceries and essentials from nearby shops, at your door fast.",
+              },
+              {
+                icon: "🏪",
+                title: "Sell online",
+                text: "Your shop live on the internet in minutes, with POS and inventory.",
+              },
+              {
+                icon: "🛵",
+                title: "Deliver & earn",
+                text: "Nearby orders matched to riders, with transparent payouts.",
+              },
+              {
+                icon: "📍",
+                title: "Track live",
+                text: "Real-time order tracking with secure delivery PIN handoff.",
+              },
+            ].map((f) => (
+              <div
+                key={f.title}
+                className="rounded-3xl border border-slate-200/80 bg-gradient-to-b from-orange-50/80 to-white p-7 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-white border border-orange-100 shadow-sm flex items-center justify-center text-2xl" aria-hidden="true">
+                  {f.icon}
+                </div>
+                <h3 className="mt-5 text-lg font-bold">{f.title}</h3>
+                <p className="mt-2 text-slate-600 leading-relaxed">{f.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ FOR CUSTOMERS (split) ============ */}
+      <section id="customers" className="py-24 sm:py-32 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div>
               <p className="text-sm font-bold uppercase tracking-widest text-orange-600 mb-4">
                 For customers
               </p>
-              <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
                 Groceries at your door in 15 minutes
               </h2>
               <p className="mt-6 text-lg text-slate-600 leading-relaxed">
@@ -138,45 +202,49 @@ export default function Home() {
               </ul>
               <Link
                 href={SHOP_URL}
-                className="mt-8 inline-flex px-6 py-3 text-base font-bold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors"
+                className="mt-8 inline-flex items-center gap-2 font-bold text-orange-700 hover:text-orange-800 transition-colors"
               >
-                Start shopping →
+                Start shopping <span aria-hidden="true">→</span>
               </Link>
             </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-orange-100">
-              <Image
-                src="/images/customer-grocery.jpg"
-                alt="Fresh groceries delivered to a customer's door in 15 minutes via Xyvot"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
+            <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-orange-100 via-amber-50 to-rose-100 p-8 sm:p-10">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white shadow-xl">
+                <Image
+                  src="/images/customer-grocery.jpg"
+                  alt="Fresh groceries delivered to a customer's door in 15 minutes via Xyvot"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============ FOR BUSINESSES ============ */}
-      <section id="businesses" className="py-20 sm:py-28 bg-slate-950 text-white scroll-mt-16">
+      {/* ============ FOR BUSINESSES (split, reversed) ============ */}
+      <section id="businesses" className="py-24 sm:py-32 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-800 order-2 lg:order-1">
-              <Image
-                src="/images/business-dashboard.jpg"
-                alt="Xyvot business dashboard showing inventory, orders, and sales analytics for merchants"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100 p-8 sm:p-10 order-2 lg:order-1">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white shadow-xl">
+                <Image
+                  src="/images/business-dashboard.jpg"
+                  alt="Xyvot business dashboard showing inventory, orders, and sales analytics for merchants"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
             </div>
             <div className="order-1 lg:order-2">
-              <p className="text-sm font-bold uppercase tracking-widest text-orange-400 mb-4">
+              <p className="text-sm font-bold uppercase tracking-widest text-orange-600 mb-4">
                 For businesses
               </p>
-              <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
                 Take your shop online in minutes
               </h2>
-              <p className="mt-6 text-lg text-slate-300 leading-relaxed">
+              <p className="mt-6 text-lg text-slate-600 leading-relaxed">
                 A complete business platform — online storefront, inventory
                 management, POS billing, rider dispatch, and customer
                 invoicing. Everything a local shop needs to compete online.
@@ -190,35 +258,35 @@ export default function Home() {
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span
-                      className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-xs font-bold"
+                      className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center text-xs font-bold"
                       aria-hidden="true"
                     >
                       ✓
                     </span>
-                    <span className="text-slate-200">{item}</span>
+                    <span className="text-slate-700">{item}</span>
                   </li>
                 ))}
               </ul>
               <Link
                 href={BUSINESS_URL}
-                className="mt-8 inline-flex px-6 py-3 text-base font-bold text-slate-950 bg-white rounded-full hover:bg-orange-100 transition-colors"
+                className="mt-8 inline-flex items-center gap-2 font-bold text-orange-700 hover:text-orange-800 transition-colors"
               >
-                Open your shop →
+                Open your shop <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============ FOR RIDERS ============ */}
-      <section id="riders" className="py-20 sm:py-28 scroll-mt-16">
+      {/* ============ FOR RIDERS (split) ============ */}
+      <section id="riders" className="py-24 sm:py-32 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div>
               <p className="text-sm font-bold uppercase tracking-widest text-orange-600 mb-4">
                 For delivery partners
               </p>
-              <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
                 Earn on your schedule
               </h2>
               <p className="mt-6 text-lg text-slate-600 leading-relaxed">
@@ -245,36 +313,38 @@ export default function Home() {
               </ul>
               <Link
                 href={RIDER_URL}
-                className="mt-8 inline-flex px-6 py-3 text-base font-bold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors"
+                className="mt-8 inline-flex items-center gap-2 font-bold text-orange-700 hover:text-orange-800 transition-colors"
               >
-                Become a rider →
+                Become a rider <span aria-hidden="true">→</span>
               </Link>
             </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-emerald-50">
-              <Image
-                src="/images/rider-delivery.jpg"
-                alt="Xyvot delivery partner on a bike delivering groceries to a customer"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
+            <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-emerald-50 via-teal-50 to-orange-50 p-8 sm:p-10">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white shadow-xl">
+                <Image
+                  src="/images/rider-delivery.jpg"
+                  alt="Xyvot delivery partner on a bike delivering groceries to a customer"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ============ HOW IT WORKS ============ */}
-      <section id="how-it-works" className="py-20 sm:py-28 bg-slate-50 scroll-mt-16">
+      <section id="how-it-works" className="py-24 sm:py-32 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto">
             <p className="text-sm font-bold uppercase tracking-widest text-orange-600 mb-4">
               How it works
             </p>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900">
+            <h2 className="text-4xl sm:text-5xl font-black tracking-tight">
               From shop shelf to doorstep
             </h2>
           </div>
-          <ol className="mt-14 grid sm:grid-cols-3 gap-8">
+          <ol className="mt-14 grid sm:grid-cols-3 gap-6">
             {[
               {
                 step: "1",
@@ -294,15 +364,15 @@ export default function Home() {
             ].map((s) => (
               <li
                 key={s.step}
-                className="bg-white rounded-3xl p-8 shadow-sm border border-slate-200/80"
+                className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm"
               >
                 <span
-                  className="inline-flex w-12 h-12 rounded-2xl bg-orange-600 text-white text-xl font-black items-center justify-center"
+                  className="inline-flex w-12 h-12 rounded-2xl bg-slate-950 text-white text-xl font-black items-center justify-center"
                   aria-hidden="true"
                 >
                   {s.step}
                 </span>
-                <h3 className="mt-6 text-xl font-bold text-slate-900">{s.title}</h3>
+                <h3 className="mt-6 text-xl font-bold">{s.title}</h3>
                 <p className="mt-3 text-slate-600 leading-relaxed">{s.text}</p>
               </li>
             ))}
@@ -310,43 +380,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ CTA ============ */}
-      <section className="py-20 sm:py-28">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-slate-950 rounded-[2.5rem] px-8 py-16 sm:p-20 text-center text-white">
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight">
-              Ready to experience instant commerce?
-            </h2>
-            <p className="mt-6 text-lg text-slate-300 max-w-xl mx-auto">
-              Shop from local stores, sell your products online, or deliver
-              with us — Xyvot is built for everyone in the neighbourhood.
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href={SHOP_URL}
-                className="w-full sm:w-auto inline-flex justify-center px-8 py-4 text-base font-bold text-slate-950 bg-white rounded-full hover:bg-orange-100 transition-colors"
-              >
-                Shop now
-              </Link>
-              <Link
-                href={BUSINESS_URL}
-                className="w-full sm:w-auto inline-flex justify-center px-8 py-4 text-base font-bold text-white border-2 border-white/30 rounded-full hover:border-white transition-colors"
-              >
-                Sell on Xyvot
-              </Link>
+      {/* ============ CTA (dark gradient card) ============ */}
+      <section className="relative py-24 sm:py-32">
+        <div
+          aria-hidden="true"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[380px] rounded-full bg-gradient-to-br from-orange-300/40 via-amber-200/30 to-rose-200/30 blur-3xl pointer-events-none"
+        />
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 px-8 py-16 sm:p-20 text-center text-white">
+            <div
+              aria-hidden="true"
+              className="absolute -top-32 left-1/4 w-96 h-96 rounded-full bg-orange-600/20 blur-3xl pointer-events-none"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-32 right-1/4 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"
+            />
+            <div className="relative">
+              <h2 className="text-4xl sm:text-5xl font-black tracking-tight">
+                Ready to experience instant commerce?
+              </h2>
+              <p className="mt-6 text-lg text-slate-300 max-w-xl mx-auto">
+                Shop from local stores, sell your products online, or deliver
+                with us — Xyvot is built for everyone in the neighbourhood.
+              </p>
+              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  href={SHOP_URL}
+                  className="w-full sm:w-auto inline-flex justify-center px-8 py-4 text-base font-bold text-slate-950 bg-white rounded-full hover:bg-orange-100 transition-colors"
+                >
+                  Shop now
+                </Link>
+                <Link
+                  href={BUSINESS_URL}
+                  className="w-full sm:w-auto inline-flex justify-center px-8 py-4 text-base font-bold text-white border border-white/30 rounded-full hover:border-white/70 transition-colors"
+                >
+                  Sell on Xyvot
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ============ FAQ ============ */}
-      <section id="faq" className="py-20 sm:py-28 bg-slate-50 scroll-mt-16">
+      <section id="faq" className="py-24 sm:py-32 scroll-mt-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-sm font-bold uppercase tracking-widest text-orange-600 mb-4">
               FAQ
             </p>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900">
+            <h2 className="text-4xl sm:text-5xl font-black tracking-tight">
               Frequently asked questions
             </h2>
           </div>
@@ -381,7 +465,7 @@ export default function Home() {
                 key={item.q}
                 className="group bg-white rounded-2xl border border-slate-200/80 px-6 py-5 open:shadow-sm"
               >
-                <summary className="flex items-center justify-between cursor-pointer font-bold text-slate-900 list-none">
+                <summary className="flex items-center justify-between cursor-pointer font-bold list-none">
                   {item.q}
                   <span
                     className="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 group-open:rotate-45 transition-transform"
@@ -400,18 +484,16 @@ export default function Home() {
       {/* ============ FOOTER ============ */}
       <footer className="bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div>
-              <p className="text-2xl font-black tracking-tight">
-                xyvot<span className="text-orange-600">.</span>
-              </p>
-              <p className="mt-4 text-sm text-slate-500 leading-relaxed">
-                Instant commerce for local businesses. Groceries and
-                essentials delivered in 15 minutes.
-              </p>
-            </div>
+          <p className="text-2xl font-black tracking-tight">
+            xyvot<span className="text-orange-600">.</span>
+          </p>
+          <p className="mt-3 text-slate-600 max-w-md">
+            Empowering neighbourhoods with instant commerce — shop, sell, and
+            deliver, all in minutes.
+          </p>
+          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
             <nav aria-label="Shop links">
-              <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900 mb-4">
+              <h3 className="text-sm font-bold uppercase tracking-widest mb-4">
                 Shop
               </h3>
               <ul className="space-y-3 text-sm text-slate-600">
@@ -423,7 +505,7 @@ export default function Home() {
               </ul>
             </nav>
             <nav aria-label="Business links">
-              <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900 mb-4">
+              <h3 className="text-sm font-bold uppercase tracking-widest mb-4">
                 Business
               </h3>
               <ul className="space-y-3 text-sm text-slate-600">
@@ -440,28 +522,40 @@ export default function Home() {
               </ul>
             </nav>
             <nav aria-label="Company links">
-              <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900 mb-4">
+              <h3 className="text-sm font-bold uppercase tracking-widest mb-4">
                 Company
               </h3>
               <ul className="space-y-3 text-sm text-slate-600">
                 <li>
-                  <Link href="#customers" className="hover:text-slate-900 transition-colors">
+                  <ScrollLink to="customers" className="hover:text-slate-900 transition-colors">
                     For customers
-                  </Link>
+                  </ScrollLink>
                 </li>
                 <li>
-                  <Link href="#businesses" className="hover:text-slate-900 transition-colors">
+                  <ScrollLink to="businesses" className="hover:text-slate-900 transition-colors">
                     For businesses
-                  </Link>
+                  </ScrollLink>
                 </li>
                 <li>
-                  <Link href="#how-it-works" className="hover:text-slate-900 transition-colors">
+                  <ScrollLink to="how-it-works" className="hover:text-slate-900 transition-colors">
                     How it works
-                  </Link>
+                  </ScrollLink>
                 </li>
                 <li>
-                  <Link href="#faq" className="hover:text-slate-900 transition-colors">
+                  <ScrollLink to="faq" className="hover:text-slate-900 transition-colors">
                     FAQ
+                  </ScrollLink>
+                </li>
+              </ul>
+            </nav>
+            <nav aria-label="Legal links">
+              <h3 className="text-sm font-bold uppercase tracking-widest mb-4">
+                Legal
+              </h3>
+              <ul className="space-y-3 text-sm text-slate-600">
+                <li>
+                  <Link href="/privacy-policy" className="hover:text-slate-900 transition-colors">
+                    Privacy Policy
                   </Link>
                 </li>
               </ul>
@@ -471,15 +565,9 @@ export default function Home() {
             <p className="text-sm text-slate-500">
               © 2026 Xyvot. All rights reserved.
             </p>
-            <div className="flex items-center gap-6 text-sm text-slate-500">
-              <Link
-                href="/privacy-policy"
-                className="hover:text-slate-900 transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <p>Made for neighbourhoods, by Xyvot.</p>
-            </div>
+            <p className="text-sm text-slate-500">
+              Made for neighbourhoods, by Xyvot.
+            </p>
           </div>
         </div>
       </footer>
