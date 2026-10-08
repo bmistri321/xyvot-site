@@ -1,9 +1,10 @@
-import { Inter } from "next/font/google";
+import { Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const libreBaskerville = Libre_Baskerville({
+  variable: "--font-libre-baskerville",
   subsets: ["latin"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -95,19 +96,73 @@ const jsonLd = {
       publisher: { "@id": `${SITE_URL}/#organization` },
       inLanguage: "en-IN",
     },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faq`,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is Xyvot?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Xyvot is an instant commerce platform that connects local neighbourhood shops with customers. Customers get groceries and daily essentials delivered in about 15 minutes, while merchants get a complete online business platform.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How fast is Xyvot delivery?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Xyvot offers 15-minute express delivery from nearby partner shops and dark stores. Every order includes live tracking and a delivery PIN for secure handoff.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How can my shop sell on Xyvot?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Visit business.xyvot.com to open your online storefront in minutes. You get inventory management, POS billing, GST-ready invoicing, and automatic rider dispatch — free to start.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do I become a Xyvot delivery partner?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sign up at rider.xyvot.com. There is zero joining fee. You receive nearby orders matched to your live location, earn transparent per-delivery payouts, and work flexible shifts.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Where does Xyvot operate?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Xyvot currently operates in select neighbourhoods in India, expanding area by area. Check shop.xyvot.com to see if delivery is available in your location.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do customers log in to Xyvot?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Customers log in with WhatsApp OTP — enter your phone number, receive a code on WhatsApp, and you are in. No passwords to remember.",
+          },
+        },
+      ],
+    },
   ],
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <html lang="en" className={`${libreBaskerville.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-white text-slate-900">
+      <body className="[font-family:var(--font-libre-baskerville)] antialiased bg-white text-slate-900">
         {children}
       </body>
     </html>

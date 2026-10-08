@@ -32,6 +32,9 @@ export default function Home() {
             <Link href="#how-it-works" className="hover:text-slate-900 transition-colors">
               How it works
             </Link>
+            <Link href="#faq" className="hover:text-slate-900 transition-colors">
+              FAQ
+            </Link>
           </div>
           <div className="flex items-center gap-3">
             <Link
@@ -336,6 +339,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============ FAQ ============ */}
+      <section id="faq" className="py-20 sm:py-28 bg-slate-50 scroll-mt-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-sm font-bold uppercase tracking-widest text-orange-600 mb-4">
+              FAQ
+            </p>
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900">
+              Frequently asked questions
+            </h2>
+          </div>
+          <div className="mt-12 space-y-4">
+            {[
+              {
+                q: "What is Xyvot?",
+                a: "Xyvot is an instant commerce platform that connects local neighbourhood shops with customers. Customers get groceries and daily essentials delivered in about 15 minutes, while merchants get a complete online business platform.",
+              },
+              {
+                q: "How fast is Xyvot delivery?",
+                a: "Xyvot offers 15-minute express delivery from nearby partner shops and dark stores. Every order includes live tracking and a delivery PIN for secure handoff.",
+              },
+              {
+                q: "How can my shop sell on Xyvot?",
+                a: "Visit business.xyvot.com to open your online storefront in minutes. You get inventory management, POS billing, GST-ready invoicing, and automatic rider dispatch — free to start.",
+              },
+              {
+                q: "How do I become a Xyvot delivery partner?",
+                a: "Sign up at rider.xyvot.com. There is zero joining fee. You receive nearby orders matched to your live location, earn transparent per-delivery payouts, and work flexible shifts.",
+              },
+              {
+                q: "Where does Xyvot operate?",
+                a: "Xyvot currently operates in select neighbourhoods in India, expanding area by area. Check shop.xyvot.com to see if delivery is available in your location.",
+              },
+              {
+                q: "How do customers log in to Xyvot?",
+                a: "Customers log in with WhatsApp OTP — enter your phone number, receive a code on WhatsApp, and you are in. No passwords to remember.",
+              },
+            ].map((item) => (
+              <details
+                key={item.q}
+                className="group bg-white rounded-2xl border border-slate-200/80 px-6 py-5 open:shadow-sm"
+              >
+                <summary className="flex items-center justify-between cursor-pointer font-bold text-slate-900 list-none">
+                  {item.q}
+                  <span
+                    className="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 group-open:rotate-45 transition-transform"
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-4 text-slate-600 leading-relaxed">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ============ FOOTER ============ */}
       <footer className="bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
@@ -396,6 +457,11 @@ export default function Home() {
                 <li>
                   <Link href="#how-it-works" className="hover:text-slate-900 transition-colors">
                     How it works
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#faq" className="hover:text-slate-900 transition-colors">
+                    FAQ
                   </Link>
                 </li>
               </ul>
