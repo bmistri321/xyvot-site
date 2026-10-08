@@ -427,32 +427,39 @@ export default function Home() {
       <footer className="bg-slate-950 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-12 gap-10">
-            <div className="md:col-span-5">
-              <p className="text-[28px] font-black tracking-tight">
-                xyvot<span className="text-orange-500">.</span>
-              </p>
-              <p className="mt-4 text-slate-400 max-w-sm leading-relaxed">
-                Instant commerce for local businesses. Built for the
-                neighbourhoods we serve.
-              </p>
-            </div>
-            <nav aria-label="Shop links" className="md:col-span-2">
+            {/* Link columns */}
+            <nav aria-label="About links" className="md:col-span-2">
               <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
-                Shop
+                About
+              </h3>
+              <ul className="mt-5 space-y-3 text-[15px]">
+                <li>
+                  <Link href="/about" className="text-slate-300 hover:text-white transition-colors">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-slate-300 hover:text-white transition-colors">
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <ScrollLink to="faq" className="text-slate-300 hover:text-white transition-colors">
+                    FAQ
+                  </ScrollLink>
+                </li>
+              </ul>
+            </nav>
+            <nav aria-label="Platform links" className="md:col-span-2">
+              <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
+                Platform
               </h3>
               <ul className="mt-5 space-y-3 text-[15px]">
                 <li>
                   <Link href={SHOP_URL} className="text-slate-300 hover:text-white transition-colors">
-                    Marketplace
+                    Shop groceries
                   </Link>
                 </li>
-              </ul>
-            </nav>
-            <nav aria-label="Work links" className="md:col-span-2">
-              <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
-                Work
-              </h3>
-              <ul className="mt-5 space-y-3 text-[15px]">
                 <li>
                   <Link href={BUSINESS_URL} className="text-slate-300 hover:text-white transition-colors">
                     Sell on Xyvot
@@ -460,40 +467,111 @@ export default function Home() {
                 </li>
                 <li>
                   <Link href={RIDER_URL} className="text-slate-300 hover:text-white transition-colors">
-                    Ride with us
+                    Become a rider
                   </Link>
                 </li>
               </ul>
             </nav>
-            <nav aria-label="Company links" className="md:col-span-3">
+            <nav aria-label="Help links" className="md:col-span-2">
               <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
-                Company
+                Help
               </h3>
               <ul className="mt-5 space-y-3 text-[15px]">
-                <li>
-                  <Link href="/about" className="text-slate-300 hover:text-white transition-colors">
-                    About
-                  </Link>
-                </li>
                 <li>
                   <ScrollLink to="how-it-works" className="text-slate-300 hover:text-white transition-colors">
                     How it works
                   </ScrollLink>
                 </li>
                 <li>
-                  <ScrollLink to="faq" className="text-slate-300 hover:text-white transition-colors">
-                    FAQ
+                  <ScrollLink to="platform" className="text-slate-300 hover:text-white transition-colors">
+                    The platform
                   </ScrollLink>
                 </li>
+              </ul>
+            </nav>
+            <nav aria-label="Policy links" className="md:col-span-2">
+              <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
+                Policy
+              </h3>
+              <ul className="mt-5 space-y-3 text-[15px]">
                 <li>
                   <Link href="/privacy-policy" className="text-slate-300 hover:text-white transition-colors">
                     Privacy Policy
                   </Link>
                 </li>
+                <li>
+                  <Link href="/terms-of-use" className="text-slate-300 hover:text-white transition-colors">
+                    Terms of Use
+                  </Link>
+                </li>
               </ul>
             </nav>
+            {/* Mail Us */}
+            <div className="md:col-span-4 md:border-l md:border-white/10 md:pl-10">
+              <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
+                Mail Us
+              </h3>
+              <address className="mt-5 text-[15px] text-slate-300 not-italic leading-relaxed">
+                Xyvot Internet Private Limited,
+                <br />
+                [Registered office address]
+              </address>
+              <h3 className="mt-8 text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
+                Social
+              </h3>
+              <div className="mt-5 flex items-center gap-4">
+                <a
+                  href="#"
+                  aria-label="Xyvot on X"
+                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-white hover:border-white/60 transition-colors"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  aria-label="Xyvot on Instagram"
+                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-white hover:border-white/60 transition-colors"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  aria-label="Xyvot on YouTube"
+                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-white hover:border-white/60 transition-colors"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                    <rect x="2" y="5" width="20" height="14" rx="4" />
+                    <path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none" />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  aria-label="Xyvot on LinkedIn"
+                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-white hover:border-white/60 transition-colors"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
-          <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3">
+          {/* Bottom bar */}
+          <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-[15px]">
+              <Link href={BUSINESS_URL} className="text-slate-300 hover:text-white font-semibold transition-colors">
+                Become a Seller
+              </Link>
+              <ScrollLink to="how-it-works" className="text-slate-300 hover:text-white font-semibold transition-colors">
+                Help Center
+              </ScrollLink>
+            </div>
             <p className="text-sm text-slate-500">
               © 2026 Xyvot. All rights reserved.
             </p>
